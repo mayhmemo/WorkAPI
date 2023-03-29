@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><%- include ('../partials/head'); %></head>
+<body class="bg-gray-900">
+  <section class="w-full flex min-h-screen items-center justify-center dark:bg-gray-800"> 
+    <div class="w-full xl:w-1/2 relative shadow-md sm:rounded-lg p-5">
+       <form name="createDisplacements" onsubmit="return validateForm();" action="/displacements/new" method="POST">
+              <h1 class="text-white text-2xl mb-2"><i class="fa-solid fa-pencil"></i> Cadastrando condutor </h1>
+                              <%- include ('../partials/displacements/form_fields', {vendo: "", editando: "", kmInicial: "", kmFinal: "",
+                    inicioDeslocamento: "", fimDeslocamento: "", checkList: "", motivo: "", observacao: "", idCondutor: "", idVeiculo: "", idCliente: ""}); %>
+                <div class="flex justify-end">
+                    <a href="/displacements">
+                        <button type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Cancelar</button>
+                    </a>
+                    <a>
+                        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Enviar</button>
+                    </a>
+                </div>
+       </form>
+    </div>
+  </section>
+  <script>
+    
+    async function validateForm() {
+      const clientesId = [];
+      const condutorId = [];
+      const veiculoId = [];
+      let tIdCliente = document.forms["createDisplacements"]["idCliente"].value;
+      let tIdCondutor = document.forms["createDisplacements"]["idCondutor"].value;
+      let tIdVeiculo = document.forms["createDisplacements"]["idVeiculo"].value;
+      
+      const client = await fetch('https://api-deslocamento.herokuapp.com/api/v1/Cliente');
+      const clientes = await client.json();
+      await clientes.forEach(c => {
+        clientesId.push((c.id).toString());
+      })
+
+      const conductor = await fetch('https://api-deslocamento.herokuapp.com/api/v1/Condutor');
+      const conductors = await conductor.json();
+      await conductors.forEach(co => {
+        condutorId.push((co.id).toString());
+      })
+
+      const vehicle = await fetch('https://api-deslocamento.herokuapp.com/api/v1/Veiculo');
+      const vehicles = await vehicle.json();
+      await vehicles.forEach(v => {
+        veiculoId.push((v.id).toString());
+      })
+
+      if ((tIdCliente in clientesId) && (tIdCondutor in condutorId) && (tIdVeiculo in veiculoId)) {
+        return true;
+      } else {
+        if (tIdCliente in clientesId) {
+          if (tIdCondutor in condutorId) {
+              if (tIdVeiculo in veiculoId) {
+                
+              } else {
+                alert("Veículo não cadastrado");
+                return false;
+              }
+          } else {
+            alert("Condutor não cadastrado");
+            return false;
+          }
+        } else {
+          alert("Cliente não cadastrado");
+          return false;
+        }
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><%- include ('../partials/head'); %></head>
+<body class="bg-gray-900">
+  <section class="w-full flex min-h-screen items-center justify-center dark:bg-gray-800"> 
+          <div class="w-full xl:w-1/2 relative shadow-md sm:rounded-lg p-5 space-y-5">
+            <h1 class="text-white text-2xl mb-2"><i class="fa-solid fa-car"></i> Veículos </h1>
+            <%if(Object.keys(vehicles).length !== 0 ) {%>
+            <div class="w-full relative overflow-x-auto">
+              <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                  <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                      <tr>
+                          <th scope="col" class="px-6 py-3">
+                              ID
+                          </th>
+                          <th scope="col" class="px-6 py-3">
+                              Placa
+                          </th>
+                          <th scope="col" class="px-6 py-3">
+                              Marca Modelo
+                          </th>
+                          <th scope="col" class="px-6 py-3">
+                              Ano Fabricação
+                          </th>
+                          <th scope="col" class="px-6 py-3">
+                              Km Atual
+                          </th>
+                          <th scope="col" class="px-6 py-3">
+                              
+                          </th>
+                      </tr>
+                  </thead>
+                  <tbody id="cliResults">
+<%vehicles.forEach(v => { %>
+      <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                          <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                              <%=v.id%>
+                          </th>
+                          <th class="px-6 py-4">
+                              <%=v.placa%>
+                          </th>
+                          <td class="px-6 py-4">
+                              <%=v.marcaModelo%>
+                          </td>
+                          <td class="px-6 py-4">
+                              <%=v.anoFabricacao%>
+                          </td>
+                          <td class="px-6 py-4">
+                              <%=v.kmAtual%>
+                          </td>
+                          <td class="px-6 py-4">
+                              <div class="flex space-x-3">
+                                <a href="/vehicles/view?id=<%=v.id%>" class="font-medium text-blue-600 dark:text-blue-500 hover:underline" title="Ver"><i class="fa-solid fa-eye"></i></a>
+                                  <a href="/vehicles/edit?id=<%=v.id%>" class="font-medium text-blue-600 dark:text-blue-500 hover:underline" title="Editar"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <form onSubmit="if(!confirm('Certeza?')){return false;}" action="/vehicles/delete?_method=DELETE" method="POST">
+                                  <input type="hidden" id="id" name="id" value="<%=v.id%>">
+                                  <button type="submit" class="font-medium text-blue-600 dark:text-blue-500 hover:underline" title="Excluir"><i class="fa-solid fa-trash"></i></button>
+                                </form>
+                              </div>
+                          </td>
+                      </tr>              
+<%})%>
+                  </tbody>
+              </table>
+            </div>
+              <%} else {%>
+                <div class="text-center">
+                  <span class="text-center text-white text-xl"><i class="fa-solid fa-heart-crack"></i> Sem veículos cadastrados ainda...</span>
+                </div>
+                <%}%>
+                <div class="flex justify-end">
+                  <a href="/">
+                        <button type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Voltar</button>
+                    </a>
+                    <a href="vehicles/new">
+                        <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Novo</button>
+                    </a>
+                </div>
+            </div>
+      </section>
+</body>
+</html>

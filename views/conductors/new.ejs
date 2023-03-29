@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><%- include ('./partials/head'); %></head>
+<head><%- include ('../partials/head'); %></head>
 <body class="bg-gray-900">
   <section class="w-full flex min-h-screen items-center justify-center dark:bg-gray-800"> 
     <div class="w-full xl:w-1/2 relative shadow-md sm:rounded-lg p-5">
-       <form action="/register" method="POST">
-              <h1 class="text-white text-2xl mb-2"><i class="fa-solid fa-pencil"></i> Cadastrando cliente </h1>
-                              <%- include ('./partials/form_fields', {vendo: "", nome: "", documento: "",
-                    tipodocumento: "", logradouro: "",
-                    bairro: "", cidade: "", uf: "", numero: "" }); %>
+       <form action="/conductors/new" method="POST">
+              <h1 class="text-white text-2xl mb-2"><i class="fa-solid fa-pencil"></i> Cadastrando condutor </h1>
+              
+                              <%- include ('../partials/conductors/form_fields', {vendo: "", nome: "", numeroHabilitacao: "",
+                    catergoriaHabilitacao: "", vencimentoHabilitacao: ""}); %>
                 <div class="flex justify-end">
-                    <a href="/">
+                    <a href="/conductors">
                         <button type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Cancelar</button>
                     </a>
                     <a>
