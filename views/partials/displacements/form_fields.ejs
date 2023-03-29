@@ -1,0 +1,57 @@
+                <div class="grid md:grid-cols-2 md:gap-6">
+                    <div class="relative z-0 mb-6 w-full group col-span-2">
+                        <input required value="<%= kmInicial %>" <% if((kmInicial) ||(vendo == "sim")) {%>readonly<%}%> type="number" name="kmInicial" id="kmInicial" class="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none text-white border-gray-600 focus:border-blue-500 focus:outline-none focus:ring-0 peer" placeholder=" " required/>
+                        <label for="kmInicial" class="peer-focus:font-medium absolute text-sm text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Km Inicial</label>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 md:gap-6">
+                  <div class="relative z-0 mb-6 w-full group">
+                        <input value="<%= inicioDeslocamento %>" <% if((inicioDeslocamento) ||(vendo == "sim")) {%>readonly<%}%> type="datetime-local" name="inicioDeslocamento" id="inicioDeslocamento" class="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none text-white border-gray-600 focus:border-blue-500 focus:outline-none focus:ring-0 peer" placeholder=" " min="2018-06-07T00:00" max="5000-06-14T00:00" required/>
+                        <label for="inicioDeslocamento" class="peer-focus:font-medium absolute text-sm text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Inicio Deslocamento</label>
+                    </div>
+                    <div class="relative z-0 mb-6 w-full group">
+                        <input value="<%= checkList %>" <% if((checkList) ||(vendo == "sim")) {%>readonly<%}%> type="text" name="checkList" id="checkList" class="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none text-white border-gray-600 focus:border-blue-500 focus:outline-none focus:ring-0 peer" placeholder=" " required/>
+                        <label for="checkList" class="peer-focus:font-medium absolute text-sm text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">CheckList</label>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 md:gap-6">
+                    <div class="relative z-0 mb-6 w-full group col-span-2">
+                        <input value="<%= motivo %>" <% if((motivo) ||(vendo == "sim")) {%>readonly<%}%> type="text" name="motivo" id="motivo" class="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none text-white border-gray-600 focus:border-blue-500 focus:outline-none focus:ring-0 peer" placeholder=" "/>
+                        <label for="motivo" class="peer-focus:font-medium absolute text-sm text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Motivo</label>
+                    </div>
+                </div>
+                                <div class="grid md:grid-cols-2 md:gap-6">
+                    <div class="relative z-0 mb-6 w-full group col-span-2">
+                        <input value="<%= observacao %>" <% if(vendo == "sim") {%>readonly<%}%> type="text" name="observacao" id="observacao" class="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none text-white border-gray-600 focus:border-blue-500 focus:outline-none focus:ring-0 peer" placeholder=" "/>
+                        <label for="observacao" class="peer-focus:font-medium absolute text-sm text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Observação</label>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 md:gap-6">
+                  <div class="relative z-0 mb-6 w-full group">
+                        <input value="<%= idCondutor %>" <% if((idCondutor) ||(vendo == "sim")) {%>readonly<%}%> type="number" name="idCondutor" id="idCondutor" class="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none text-white border-gray-600 focus:border-blue-500 focus:outline-none focus:ring-0 peer" placeholder=" " required/>
+                        <label for="idCondutor" class="peer-focus:font-medium absolute text-sm text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">ID Condutor</label>
+                    </div>
+                    <div class="relative z-0 mb-6 w-full group">
+                        <input value="<%= idVeiculo %>" <% if((idVeiculo) ||(vendo == "sim")) {%>readonly<%}%> type="number" name="idVeiculo" id="idVeiculo" class="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none text-white border-gray-600 focus:border-blue-500 focus:outline-none focus:ring-0 peer" placeholder=" " required/>
+                        <label for="idVeiculo" class="peer-focus:font-medium absolute text-sm text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">ID Veículo</label>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 md:gap-6">
+                    <div class="relative z-0 mb-6 w-full group col-span-2">
+                        <input value="<%= idCliente %>" <% if((idCliente) ||(vendo == "sim")) {%>readonly<%}%> type="number" name="idCliente" id="idCliente" class="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none text-white border-gray-600 focus:border-blue-500 focus:outline-none focus:ring-0 peer" placeholder=" " required/>
+                        <label for="idCliente" class="peer-focus:font-medium absolute text-sm text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">ID Cliente</label>
+                    </div>
+                </div>
+                <%if(editando == "sim") {%>
+                    <div class="grid md:grid-cols-2 md:gap-6">
+                  <div class="relative z-0 mb-6 w-full group">
+                        <input value="<%= kmFinal %>" <% if(vendo == "sim") {%>readonly<%}%> type="number" name="kmFinal" id="kmFinal" class="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none text-white border-gray-600 focus:border-blue-500 focus:outline-none focus:ring-0 peer" placeholder=" " required/>
+                        <label for="kmFinal" class="peer-focus:font-medium absolute text-sm text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Km Final</label>
+                    </div>
+                    <div class="relative z-0 mb-6 w-full group">
+                        <input value="<%= fimDeslocamento %>" <% if(vendo == "sim") {%>readonly<%}%> type="datetime-local" name="fimDeslocamento" id="fimDeslocamento" class="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none text-white border-gray-600 focus:border-blue-500 focus:outline-none focus:ring-0 peer" placeholder=" " min="2018-06-07T00:00" max="5000-06-14T00:00" required/>
+                        <label for="fimDeslocamento" class="peer-focus:font-medium absolute text-sm text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Fim Deslocamento</label>
+                    </div>
+                </div>
+                  <%}%>
+                
